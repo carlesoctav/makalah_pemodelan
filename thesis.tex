@@ -1,0 +1,87 @@
+%
+% Template Laporan Skripsi/Thesis 
+%
+% @author  Andreas Febrian, Lia Sadita 
+% @version 1.03
+%
+% Dokumen ini dibuat berdasarkan standar IEEE dalam membuat class untuk 
+% LaTeX dan konfigurasi LaTeX yang digunakan Fahrurrozi Rahman ketika 
+% membuat laporan skripsi. Konfigurasi yang lama telah disesuaikan dengan 
+% aturan penulisan thesis yang dikeluarkan UI pada tahun 2008.
+%
+
+%
+% Tipe dokumen adalah report dengan satu kolom. 
+%
+\documentclass[12pt, a4paper, onecolumn, oneside, final]{report}
+
+% Load konfigurasi LaTeX untuk tipe laporan thesis
+\usepackage{_internals/uithesis}
+
+% Daftar pemenggalan suku kata dan istilah dalam LaTeX
+\input{_internals/hype.indonesia}
+
+% Load konfigurasi khusus untuk laporan yang sedang dibuat
+\input{settings}
+% Daftar istilah yang mungkin perlu ditandai 
+\input{istilah}
+
+% Awal bagian penulisan laporan
+\begin{document}
+%
+% Sampul Laporan
+\input{_internals/sampul}
+
+%
+% Gunakan penomeran romawi
+\pagenumbering{roman}
+%
+% setelah bagian ini, halaman dihitung sebagai halaman ke 2
+\setcounter{page}{2}
+%
+%
+\addChapter{\kataPengantar}
+\input{src/00-front_matter/04-pengantar}
+%
+% 
+\addChapter{ABSTRAK}
+\input{src/00-front_matter/06-abstrak}
+%
+%
+\phantomsection
+\tableofcontents
+\clearpage
+\phantomsection
+\listoffigures
+\clearpage
+\phantomsection
+\listoftables
+\clearpage
+
+%
+% Gunakan penomeran Arab (1, 2, 3, ...) setelah bagian ini.
+%
+\pagenumbering{arabic}
+
+%
+%
+%
+\input{src/01-body/01-bab1}
+\input{src/01-body/02-bab2}
+\input{src/01-body/03-bab3}
+
+%Daftar Pustaka
+\input{pustaka.tex}
+
+% Alternatif manajemen daftar pustaka dengan \bibliography
+
+%
+% Lampiran 
+%
+% \begin{appendix}
+% 	\input{_internals/markLampiran}
+% 	\setcounter{page}{2}\textbf{}
+% 	\input{src/99-back_matter/lampiran}
+% \end{appendix}
+
+\end{document}
